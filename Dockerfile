@@ -1,5 +1,4 @@
-FROM us.gcr.io/broad-dsp-gcr-public/terra-jupyter-base:0.0.1
-#FROM us.gcr.io/broad-dsp-gcr-public/terra-jupyter-base:1.1.1
+FROM us.gcr.io/broad-dsp-gcr-public/terra-jupyter-base:1.0.14
 
 USER root
 
@@ -9,6 +8,18 @@ COPY scripts $JUPYTER_HOME/scripts
 ENV TERRA_R_PLATFORM="terra-jupyter-r-1.1.1"
 ENV TERRA_R_PLATFORM_BINARY_VERSION=3.17
 
+# Install protobuf 3.20.3. Note this version comes from base deep learning image. Use `conda list` to see what's installed
+# RUN cd /tmp \
+#   && wget https://github.com/protocolbuffers/protobuf/releases/download/v3.20.3/protobuf-all-3.20.3.tar.gz \
+# 	&& tar -xvzf protobuf-all-3.20.3.tar.gz \
+# 	&& cd protobuf-3.20.3/ \
+# 	&& ./configure \
+# 	&& make \
+# 	&& make check \
+# 	&& sudo make install \
+# 	&& sudo ldconfig \
+# 	&& rm -rf /tmp/protobuf-* \
+# 	&& cd ~
 
 # Add R kernel
 RUN find $JUPYTER_HOME/scripts -name '*.sh' -type f | xargs chmod +x \
@@ -154,13 +165,12 @@ RUN R -e 'install.packages("BiocManager")' \
 # https://raw.githubusercontent.com/anvilproject/anvil-docker/master/anvil-rstudio-bioconductor/install.R
 RUN R -e 'BiocManager::install(c( \
     "AnVIL", \
-    "HiCExperiment", \ 
+    "HiCExperiment", \
     "HiCool", \
-    "HiContacts", \ 
+    "HiContacts", \
     "HiContactsData", \
     "fourDNData", \
     "DNAZooData"))'
-
 ## pip runs as jupyter user
 ENV PIP_USER=true
 
