@@ -158,7 +158,9 @@ RUN R -e 'BiocManager::install(c( \
     "HiContacts", \
     "HiContactsData", \
     "fourDNData", \
-    "DNAZooData"))'
+    "DNAZooData", \
+    "GenomicFeatures", \
+    "ensembldb"))'
 ## pip runs as jupyter user
 ENV PIP_USER=true
 
