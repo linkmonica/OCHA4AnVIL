@@ -93,7 +93,7 @@ RUN apt-get update \
         mono-runtime \
     && ln -s /usr/lib/gcc/x86_64-linux-gnu/7/libgfortran.so /usr/lib/x86_64-linux-gnu/libgfortran.so \
     && ln -s /usr/lib/gcc/x86_64-linux-gnu/7/libstdc++.so /usr/lib/x86_64-linux-gnu/libstdc++.so \
-    && apt-get clean \
+    && sudo apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # DEVEL: Add sys env variables to DEVEL image
