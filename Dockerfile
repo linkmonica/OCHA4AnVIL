@@ -162,7 +162,7 @@ RUN R -e 'BiocManager::install(c( \
     "GenomicFeatures", \
     "ensembldb"))'
 
-RUN R -e 'install.packages("devtools")' \
+RUN R -e 'library("devtools")' \
     ## check version
     && R -e 'install_github("js2264/OHCA")'
     
