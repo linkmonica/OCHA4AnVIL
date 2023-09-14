@@ -25,7 +25,7 @@ jobs:
           persist-credentials: false
 
       - name: 📀 Free Disk Space (Ubuntu)
-        uses: edcdavid/free-disk-space@v1.2.0
+        uses: edcdavid/free-disk-space@main
 
       - name: 𝌚 Get current package version
         id: version
