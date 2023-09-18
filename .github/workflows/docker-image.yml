@@ -60,3 +60,9 @@ jobs:
           outputs: type=image,annotation-index.org.opencontainers.image.description=test-edger
           build-args: |
             VERSION=${{ steps.version.outputs.version }}
+
+ #  Add this instead to clear disk space:
+ #	  - name: disk space cleanup
+ #    run: |
+ #      sudo rm -rf /usr/local/lib/android # will release about 10 GB if you don't need Android
+ #      sudo rm -rf /usr/share/dotnet # will release about 20GB if you don't need .NET
