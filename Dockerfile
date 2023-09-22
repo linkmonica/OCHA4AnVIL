@@ -161,7 +161,8 @@ RUN R -e 'BiocManager::install(c( \
     "DNAZooData", \
     "GenomicFeatures", \
     "ensembldb"))'
-RUN R -e 'install.packages("terra")'
+    
+RUN R -e "install.packages('terra')"
 RUN R -e "devtools::install_github('js2264/OHCA')"  
 ## pip runs as jupyter user
 ENV PIP_USER=true
