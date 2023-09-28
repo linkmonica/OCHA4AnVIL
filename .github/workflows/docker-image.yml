@@ -25,8 +25,9 @@ jobs:
           persist-credentials: false
           
       - name: Free Disk Space (Ubuntu)
-	    uses: andreped/free-disk-space@google-cloud-cli-renamed
-        #uses: jlumbroso/free-disk-space@main
+        uses: jlumbroso/free-disk-space@main
+        with:
+          large-packages: false
 
       #- name: 📀 Free Disk Space (Ubuntu)
       #  uses: edcdavid/free-disk-space@main
