@@ -163,6 +163,7 @@ RUN R -e 'BiocManager::install(c( \
     "ensembldb"))'
     
 RUN R -e "install.packages('terra')"
+RUN R -e "install.packages('WGCNA')"
 RUN R -e "devtools::install_github('js2264/OHCA')"  
 ## pip runs as jupyter user
 ENV PIP_USER=true
