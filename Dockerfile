@@ -163,6 +163,7 @@ RUN R -e 'BiocManager::install(c( \
     "impute", \
     "preprocessCore", \
     "GO.db", \
+    "GenomicInteractions", \
     "ensembldb"))'
     
 RUN R -e "install.packages('terra')"
