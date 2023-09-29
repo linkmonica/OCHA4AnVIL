@@ -160,6 +160,9 @@ RUN R -e 'BiocManager::install(c( \
     "fourDNData", \
     "DNAZooData", \
     "GenomicFeatures", \
+    "impute", \
+    "preprocessCore", \
+    "GO.db", \
     "ensembldb"))'
     
 RUN R -e "install.packages('terra')"
