@@ -42,7 +42,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.github_token }}
 
       - name: 🏷 Get metadata for Docker
         id: meta
@@ -57,7 +57,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.github_token }}
           platforms: linux/amd64
           file: Dockerfile
           push: true
